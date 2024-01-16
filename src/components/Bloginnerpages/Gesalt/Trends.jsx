@@ -4,6 +4,7 @@ import Navbar from "../../navigationBar/Nav";
 import Footer from "../../footer/footer";
 import gsap from "gsap";
 import { useRef, useEffect } from "react";
+import { Helmet } from "react-helmet";
 
 export default function Empathy({ isDarkMode, toggleDarkMode ,handleButtonHover }) {
   let fade = useRef(null);
@@ -19,6 +20,14 @@ export default function Empathy({ isDarkMode, toggleDarkMode ,handleButtonHover 
   }, []);
   return (
     <>
+     <Helmet>
+        <title>Gestalt Psychology  | Codelinear</title>
+        <meta
+          name="Gestalt Psychology"
+          content="The website redesign of the restaurant chain, Chili's, is a great case study in UX design using Gestalt Psychology. The company wanted to create a more modern and user-friendly website that would make it easier for customers to find information about their menu, locations, and promotions."
+        />
+        <link rel="canonical" href="https://www.codelinear.com/gestalt" />
+      </Helmet>
       <Navbar  handleButtonHover={handleButtonHover}  isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
       <main className="empathy-page" ref={(el) => (fade = el)}>
         <Trendhero isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode}/>

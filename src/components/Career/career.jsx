@@ -9,6 +9,7 @@ import Whyus from "./Whyus";
 import Navbar from "../navigationBar/Nav";
 import Footer from "../footer/footer";
 import { Helmet } from "react-helmet";
+import PositionDynamic from "./PositionDynamic";
 
 export default function Career({
   isDarkMode,
@@ -36,7 +37,8 @@ export default function Career({
         <meta
           name="Career"
           content="We Are An Impact-Driven Firm,
-       Join Us And Be A Part Of The Impact"/>
+       Join Us And Be A Part Of The Impact"
+        />
         <link rel="canonical" href="https://www.codelinear.com/career" />
       </Helmet>
       <Navbar
@@ -66,7 +68,13 @@ export default function Career({
           isDarkMode={isDarkMode}
           toggleDarkMode={toggleDarkMode}
         />
-        <Positions
+        {/* <Positions
+          handleButtonHover={handleButtonHover}
+          isDarkMode={isDarkMode}
+          toggleDarkMode={toggleDarkMode}
+        /> */}
+
+        <PositionDynamic
           handleButtonHover={handleButtonHover}
           isDarkMode={isDarkMode}
           toggleDarkMode={toggleDarkMode}

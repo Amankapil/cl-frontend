@@ -275,7 +275,7 @@
   height: 100vh;
   width: 100%;
   overflow: hidden;
-  display: none;
+  /* display: none; */
   position: fixed;
   top: 0;
   left: 0;
@@ -438,7 +438,7 @@
   color: rgb(0, 0, 0);
 }
 .job-description {
-  display: none;
+  /* display: none; */
 }
 .form {
   display: flex;
@@ -461,7 +461,7 @@
   border-radius: 50px;
   background-color: #ffcd05;
   box-shadow: 0px 0px 38px 8px rgba(255, 225, 105, 0.28);
-  margin-top: 30px;
+  margin-top: 0px;
   padding: 5px 39px;
 }
 .first-name::placeholder {
@@ -602,7 +602,7 @@
   .PD {
     height: 100vh;
     width: 100%;
-    display: none;
+    /* display: none; */
     position: fixed;
     top: 0;
     left: 0;
@@ -619,7 +619,7 @@
     left: 0;
     z-index: 20;
     padding-top: 5vh;
-    background-color: #ffffff;
+    background-color: black;
   }
   .applying-form {
     margin-left: 0%;

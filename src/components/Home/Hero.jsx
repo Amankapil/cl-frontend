@@ -1,8 +1,8 @@
 import bgvideo from "./images/revised.mp4";
 import { Link } from "react-router-dom";
-// import axios from "axios";
+import axios from "axios";
 import { useEffect } from "react";
-// import { useState } from "react";
+import { useState } from "react";
 import ScrollMagic from "scrollmagic";
 import { TweenMax } from "gsap";
 
@@ -13,14 +13,14 @@ export default function Hero({
   toggleDarkMode,
   handleButtonHover,
 }) {
-  // const [array, setarray] = useState();
+  const [array, setarray] = useState();
 
-  // useEffect(() => {
-  //   axios.get("https://codelinear.in/code").then((response) => {
-  //     setarray(response.data.homeHero);
-  //     console.log(response.data);
-  //   });
-  // }, []);
+  useEffect(() => {
+    axios.get("https://codelinear.in/code").then((response) => {
+      setarray(response.data.homeHero);
+      console.log(response.data);
+    });
+  }, []);
 
   const handleButtonMouseEnter = () => {
     handleButtonHover(true);
@@ -54,7 +54,12 @@ export default function Hero({
         reverse: false,
       })
         .on("enter", () => {
-          TweenMax.to(section, 0.3, { opacity: 1, y:0, rotation:0, ease: "easeIn" });
+          TweenMax.to(section, 0.3, {
+            opacity: 1,
+            y: 0,
+            rotation: 0,
+            ease: "easeIn",
+          });
         })
         .addTo(controller);
     });
@@ -66,11 +71,18 @@ export default function Hero({
         reverse: false,
       })
         .on("enter", () => {
-          TweenMax.to(section, 0.2, { opacity: 1,y:0, rotation: 0, ease: "easeIn" });
+          TweenMax.to(section, 0.2, {
+            opacity: 1,
+            y: 0,
+            rotation: 0,
+            ease: "easeIn",
+          });
         })
         .addTo(controller);
     });
-    const sectionsheadrightbtn = document.querySelectorAll(".home-hero-right-btn");
+    const sectionsheadrightbtn = document.querySelectorAll(
+      ".home-hero-right-btn"
+    );
     sectionsheadrightbtn.forEach((section) => {
       new ScrollMagic.Scene({
         triggerElement: section,
@@ -102,35 +114,31 @@ export default function Hero({
           ></video>
         </div>
         <section id="content">
-          <h1
-            class="max-2xl:text-7xl "
-            id="header"
-          >
-          <p className="line-hero">  
+          <h1 class="max-2xl:text-7xl " id="header">
+            {/* <p className="line-hero">  
 
             <p className="home-hero-left ml-7 text-[#d8d6d6] ">Propelling The World,</p>
           </p>
-            {/* <br /> */}
             <p className="line-hero"> 
             <p className="home-hero-right -ml2 text-[#d8d6d6]">By Design
             </p>
-            </p>
-            {/* {array} */}
+            </p> */}
+            {array}
           </h1>
-          <p className="line-hero">  
-          <div className="home-hero-right-btn">
-            <Link
-              onMouseEnter={handleButtonMouseEnter}
-              onMouseLeave={handleButtonMouseLeave}
-              to={"/about"}
-              id="aboutbtn"
-            >
-              <p className={isDarkMode ? "dark" : "aboutbtn_content"}>
-                About Us
-              </p>
-            </Link>
-          </div>
-              </p>
+          <p className="line-hero">
+            <div className="home-hero-right-btn">
+              <Link
+                onMouseEnter={handleButtonMouseEnter}
+                onMouseLeave={handleButtonMouseLeave}
+                to={"/about"}
+                id="aboutbtn"
+              >
+                <p className={isDarkMode ? "dark" : "aboutbtn_content"}>
+                  About Us
+                </p>
+              </Link>
+            </div>
+          </p>
         </section>
       </section>
     </>

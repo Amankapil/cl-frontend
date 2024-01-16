@@ -14,7 +14,7 @@ import gestalt from "./Images/Frame 62.png";
 import BVG from "./Images/Frame 59.png";
 import listen from "./Images/Frame 63.png";
 import reactimg from "./Images/Frame 4.svg";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import ScrollMagic from "scrollmagic";
 import { gsap, Power2 } from "gsap";
 import { TweenMax } from "gsap";
@@ -45,6 +45,21 @@ export default function Blogsection({
   let all = useRef(null);
   let aii = useRef(null);
 
+  const [isSortActive, setIsSortActive] = useState(false);
+  const [isSort1Active, setIsSort1Active] = useState(false);
+  const [isSort2Active, setIsSort2Active] = useState(false);
+  const [isSort3Active, setIsSort3Active] = useState(false);
+  const [isSort4Active, setIsSort4Active] = useState(false);
+  const [isSort5Active, setIsSort5Active] = useState(false);
+  const [isSort6Active, setIsSort6Active] = useState(false);
+  const [isSort7Active, setIsSort7Active] = useState(false);
+  const [isSort8Active, setIsSort8Active] = useState(false);
+  const [isSort9Active, setIsSort9Active] = useState(false);
+  const [isSort10Active, setIsSort10Active] = useState(false);
+  const [isSort11Active, setIsSort11Active] = useState(false);
+
+
+
   const onClickSort1 = () => {
     gsap.to(digitalmarketing, 0, { display: "flex" });
     gsap.to(dw, 0, { display: "flex" });
@@ -63,6 +78,7 @@ export default function Blogsection({
     gsap.to(RVF, 0, { display: "flex" });
     gsap.to(Bg, 0, { display: "flex" });
     gsap.to(aii, 0, { display: "flex" });
+    setIsSortActive(true);
   };
   const onClickSort2 = () => {
     gsap.to(digitalmarketing, 0, { display: "none" });
@@ -82,6 +98,8 @@ export default function Blogsection({
     gsap.to(RVF, 0, { display: "none" });
     gsap.to(Bg, 0, { display: "none" });
     gsap.to(aii, 0, { display: "none" });
+    setIsSort2Active(true);
+
   };
   const onClickSort3 = () => {
     gsap.to(digitalmarketing, 0, { display: "none" });
@@ -101,6 +119,8 @@ export default function Blogsection({
     gsap.to(RVF, 0, { display: "none" });
     gsap.to(Bg, 0, { display: "none" });
     gsap.to(aii, 0, { display: "flex" });
+    setIsSort3Active(true);
+    
   };
   const onClickSort4 = () => {
     gsap.to(digitalmarketing, 0, { display: "none" });
@@ -120,6 +140,8 @@ export default function Blogsection({
     gsap.to(RVF, 0, { display: "none" });
     gsap.to(Bg, 0, { display: "flex" });
     gsap.to(aii, 0, { display: "none" });
+    setIsSort4Active(true);
+
   };
   const onClickSort5 = () => {
     gsap.to(digitalmarketing, 0, { display: "none" });
@@ -140,6 +162,8 @@ export default function Blogsection({
     gsap.to(RVF, 0, { display: "none" });
     gsap.to(Bg, 0, { display: "none" });
     gsap.to(aii, 0, { display: "none" });
+    setIsSort5Active(true);
+
   };
   const onClickSort6 = () => {
     gsap.to(digitalmarketing, 0, { display: "none" });
@@ -159,6 +183,8 @@ export default function Blogsection({
     gsap.to(RVF, 0, { display: "flex" });
     gsap.to(Bg, 0, { display: "none" });
     gsap.to(aii, 0, { display: "none" });
+    setIsSort6Active(true);
+
   };
   const onClickSort8 = () => {
     gsap.to(digitalmarketing, 0, { display: "none" });
@@ -178,6 +204,8 @@ export default function Blogsection({
     gsap.to(RVF, 0, { display: "none" });
     gsap.to(Bg, 0, { display: "none" });
     gsap.to(aii, 0, { display: "none" });
+    setIsSort7Active(true);
+
   };
   const onClickSort7 = () => {
     gsap.to(digitalmarketing, 0, { display: "flex" });
@@ -197,6 +225,8 @@ export default function Blogsection({
     gsap.to(RVF, 0, { display: "none" });
     gsap.to(Bg, 0, { display: "none" });
     gsap.to(aii, 0, { display: "none" });
+    setIsSort8Active(true);
+
   };
   const onClickSort9 = () => {
     gsap.to(digitalmarketing, 0, { display: "none" });
@@ -216,6 +246,8 @@ export default function Blogsection({
     gsap.to(RVF, 0, { display: "none" });
     gsap.to(Bg, 0, { display: "none" });
     gsap.to(aii, 0, { display: "none" });
+    setIsSort9Active(true);
+
   };
 
   const handleButtonMouseEnter = () => {
@@ -345,7 +377,6 @@ export default function Blogsection({
           >
             No Code
           </button>
-          
         </div>
       </section>
       </div>

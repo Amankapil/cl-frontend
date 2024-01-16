@@ -26,7 +26,7 @@ import Consulting from "./components/consultingAndStrategy/consulting";
 import UX from "./components/userExperience/UX";
 import DM from "./components/digitalMarketing/digitalmarketing";
 import PD from "./components/productDevelopment/productdevelopment";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Dash from "./components/Dashboard/dash";
 import Login from "./components/Dashboard/Login";
 import { useState } from "react";
@@ -66,15 +66,15 @@ function App() {
   // }, []);
 
   const [isDarkMode, setIsDarkMode] = useState(false);
-  // const [user, setUser] = useState(false);
-  // useEffect(() => {
-  //   const data = localStorage.getItem("jwt");
-  //   if (data) {
-  //     setUser(true);
-  //   } else {
-  //     setUser(false);
-  //   }
-  // }, []);
+  const [user, setUser] = useState(false);
+  useEffect(() => {
+    const data = localStorage.getItem("jwt");
+    if (data) {
+      setUser(true);
+    } else {
+      setUser(false);
+    }
+  }, []);
 
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
@@ -92,43 +92,40 @@ function App() {
     setIsdrag(isdragg);
   };
 
-  // const [Widht, setWidth] = useState(window.innerWidth);
-  // useEffect(() => {
-  //   window.addEventListener("resize", () => setWidth(window.innerWidth));
-  // });
+  // const location = useLocation();
+
+  const [Widht, setWidth] = useState(false);
+  useEffect(() => {
+    // window.addEventListener("resize", () => setWidth(window.innerWidth));
+
+    if (window.location.pathname === "/admin") {
+      setWidth(!Widht);
+    }
+  },[]);
 
   return (
     <div style={{ backgroundColor: isDarkMode ? "#FFFFFF" : "#090909" }}>
-      <CustomCursor
+      {/* <CustomCursor
         isButtonHovered={isButtonHovered}
         isimgHovered={isimgHovered}
         isdrag={isdrag}
         handleimgHover={handleimgHover}
         handleButtonHover={handleButtonHover}
         handledrag={handledrag}
-      />
+      /> */}
 
-      {/* {Widht > 1100 ? (
-        <AnimatedCursor
-          innerSize={8}
-          outerSize={0}
-          color="255, 255, 255"
-          outerAlpha={0.6}
-          innerScale={6}
-          outerScale={0}
-          hasBlendMode={true}
-          outerStyle={{
-            mixBlendMode: "difference",
-            zIndex: "9999999999999999999",
-          }}
-          innerStyle={{
-            mixBlendMode: "difference",
-            zIndex: "9999999999999999999",
-          }}
+      {!Widht ? (
+        <CustomCursor
+          isButtonHovered={isButtonHovered}
+          isimgHovered={isimgHovered}
+          isdrag={isdrag}
+          handleimgHover={handleimgHover}
+          handleButtonHover={handleButtonHover}
+          handledrag={handledrag}
         />
       ) : (
         ""
-      )} */}
+      )}
 
       <BrowserRouter>
         <ScrollToTop />
@@ -145,9 +142,9 @@ function App() {
               />
             }
           />
-          {/* <Route exact path="/admin" element={user ? <Dash /> : <Login />} /> */}
+          <Route exact path="/admin" element={user ? <Dash /> : <Login />} />
           {/* <Route exact path="/login" element={<Login />} /> */}
-          <Route exact path="/admin" element={<Dash />} />
+          {/* <Route exact path="/admin" element={<Dash />} /> */}
           <Route
             exact
             path="/about"

@@ -126,6 +126,7 @@ const WrokHero = () => {
                 </div>
                 <h1 className="title-container">Title : </h1>
                 {Servicesarray}
+                thik h
                 <br />
               </p>
               <br />

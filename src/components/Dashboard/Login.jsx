@@ -27,9 +27,12 @@ function Login() {
     try {
       const response = await axios
         .post("https://codelinear.in/code/login", { username, password })
+
+        // https://codelinear.in/code/work
         .then((response) => {
           console.log(response);
           if (response.status === 200) {
+            console.log(response);
             localStorage.setItem("jwt", username);
             alert(
               "logged in successfully please enter ok to visit the dash board page "
@@ -37,20 +40,23 @@ function Login() {
             window.location.reload();
             navigate("/admin");
           } else {
-            alert("Invalid email or password");
+            alert("please enter a valid email address and password");
+
+            // alert("Invalid email or password");
           }
         });
+
       const token = response.data.token;
       // Do something with the token (e.g. store it in local storage or state)
       alert("loggged in");
     } catch (error) {
       // setError("Incorrect username or password");
+      // alert("please enter a valid email address and password");
     }
   };
   return (
-    <div className="login-container"
-    >
-      <form onSubmit={handleSubmit} className="rightpart">
+    <div className="login-container">
+      <div className="rightpart">
         <h2 className="rightpart-login">Login</h2>
         <label>
           <img src={user} alt="" />
@@ -78,10 +84,10 @@ function Login() {
         <p className="forgot">Forgot Password ?</p>
         <br />
         {error && <div className="error">{error}</div>}
-        <button type="submit">
+        <button onClick={handleSubmit}>
           <img src={login} alt="" className="arrow-login" />
         </button>
-      </form>
+      </div>
       <div className="leftpart">
         <div className="left-upper">
           <img src={Mascot} alt="" className="masco" />

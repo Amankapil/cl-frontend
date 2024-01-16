@@ -13,8 +13,6 @@ import Vision from "./vision/Vision";
 import BlogHome from "../Home/BlogHome";
 import { Helmet } from "react-helmet";
 
-
-
 export default function About({
   isDarkMode,
   toggleDarkMode,
@@ -35,14 +33,14 @@ export default function About({
 
   return (
     <>
-    
       <Helmet>
         <title>About | Codelinear</title>
         <meta
           name="About"
           content="Welcome To The World Of Codelinear- The World Of Impact"
         />
-        <link rel="canonical" href="https://www.codelinear.com/about" />
+        {/* <link rel="canonical" href="https://www.codelinear.com/about" /> */}
+        
       </Helmet>
       <main className="aboutpage" ref={(el) => (fade = el)}>
         <Navbar

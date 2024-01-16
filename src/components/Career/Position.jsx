@@ -28,19 +28,26 @@ function Position({ isDarkMode, toggleDarkMode, handleButtonHover }) {
   const [email, SetEmail] = useState("");
   const [number, SetNumber] = useState("");
   const [message, Setmessage] = useState("");
+  const [openposition, SetOpenPosition] = useState("");
 
   const handleSubmit = async (e) => {
-    const data = { fristName, lastName, email, message };
+    const data = { fristName, lastName, email, message, openposition };
     console.log(data);
+
+    if (!openposition) {
+      alert("Please confirm position");
+      return;
+    }
     const response = await axios
       .post(
-        "https://backend-production-f9ef.up.railway.app/send_mail_career",
+        // "https://codelinear.in/code/send_mail_career",
+        "https://codelinear.in/code/send_mail_career",
         data
       )
       .then((response) => {
         if (response.status === 200) {
           alert("Your Application was sent successfully");
-          window.refresh();
+          // window.location.reload();
         }
         console.log(response);
       })
@@ -429,9 +436,9 @@ function Position({ isDarkMode, toggleDarkMode, handleButtonHover }) {
             </div>
             <div className="name-container">
               <div className="number">
-                <select name="" id="" className="tele">
+                {/* <select name="" id="" className="tele">
                   <option value="">+91</option>
-                </select>
+                </select> */}
                 <input
                   type="email"
                   onChange={(e) => SetEmail(e.target.value)}
@@ -447,6 +454,20 @@ function Position({ isDarkMode, toggleDarkMode, handleButtonHover }) {
                 onChange={(e) => Setmessage(e.target.value)}
                 required
               />
+            </div>
+
+            <div className="flex justify-start w-[43%]">
+              <select
+                name=""
+                id=""
+                // value={openposition}
+                onChange={(e) => SetOpenPosition(e.target.value)}
+                className="first-name"
+              >
+                <option default>confirm position</option>
+                <option value="Product Design">Product Design</option>
+                {/* <option value="Ecommerce">Developer CMS/E-commerce</option> */}
+              </select>
             </div>
 
             <button
@@ -553,9 +574,9 @@ function Position({ isDarkMode, toggleDarkMode, handleButtonHover }) {
             </div>
             <div className="name-container">
               <div className="number">
-                <select name="" id="" className="tele">
+                {/* <select name="" id="" className="tele">
                   <option value="">+91</option>
-                </select>
+                </select> */}
                 <input
                   type="email"
                   onChange={(e) => SetEmail(e.target.value)}
@@ -573,6 +594,23 @@ function Position({ isDarkMode, toggleDarkMode, handleButtonHover }) {
               />
             </div>
 
+            <div className="flex justify-start w-[43%]">
+              <select
+                name=""
+                id=""
+                // value={openposition}
+                onChange={(e) => SetOpenPosition(e.target.value)}
+                className="first-name"
+              >
+                <option default>confirm position</option>
+                <option value="Mobile Frontend">
+                  Software Development Engineer - Mobile Frontend
+                </option>
+                <option value=" Mobile Backend">
+                  Software Development Engineer - Mobile Backend
+                </option>
+              </select>
+            </div>
             <button
               onMouseEnter={handleButtonMouseEnter}
               onMouseLeave={handleButtonMouseLeave}
@@ -678,9 +716,9 @@ function Position({ isDarkMode, toggleDarkMode, handleButtonHover }) {
             </div>
             <div className="name-container">
               <div className="number">
-                <select name="" id="" className="tele">
+                {/* <select name="" id="" className="tele">
                   <option value="">+91</option>
-                </select>
+                </select> */}
                 <input
                   type="email"
                   onChange={(e) => SetEmail(e.target.value)}
@@ -696,6 +734,19 @@ function Position({ isDarkMode, toggleDarkMode, handleButtonHover }) {
                 onChange={(e) => Setmessage(e.target.value)}
                 required
               />
+            </div>
+            <div className="flex justify-start w-[43%]">
+              <select
+                name=""
+                id=""
+                // value={openposition}
+                onChange={(e) => SetOpenPosition(e.target.value)}
+                className="first-name"
+              >
+                <option default>confirm position</option>
+                <option value="Web frontend">Software Development Engineer - Web Frontend</option>
+                <option value="Web Backend">Software Development Engineer - Web Backend</option>
+              </select>
             </div>
 
             <button
@@ -802,9 +853,9 @@ function Position({ isDarkMode, toggleDarkMode, handleButtonHover }) {
             </div>
             <div className="name-container">
               <div className="number">
-                <select name="" id="" className="tele">
+                {/* <select name="" id="" className="tele">
                   <option value="">+91</option>
-                </select>
+                </select> */}
                 <input
                   type="email"
                   onChange={(e) => SetEmail(e.target.value)}
@@ -820,6 +871,19 @@ function Position({ isDarkMode, toggleDarkMode, handleButtonHover }) {
                 onChange={(e) => Setmessage(e.target.value)}
                 required
               />
+            </div>
+            <div className="flex justify-start w-[43%]">
+              <select
+                name=""
+                id=""
+                // value={openposition}
+                onChange={(e) => SetOpenPosition(e.target.value)}
+                className="first-name"
+              >
+                <option default>confirm position</option>
+                <option value="Web frontend">Software Development Engineer - Web Frontend</option>
+                <option value="Web Backend">Software Development Engineer - Web Backend</option>
+              </select>
             </div>
 
             <button
@@ -915,6 +979,7 @@ function Position({ isDarkMode, toggleDarkMode, handleButtonHover }) {
                 placeholder="First Name*"
                 className="first-name"
                 onChange={(e) => SetfristName(e.target.value)}
+                // onChange={() => SetOpenPosition("Developer CMS/E-commerce")}
                 required
               />
               <input
@@ -927,9 +992,9 @@ function Position({ isDarkMode, toggleDarkMode, handleButtonHover }) {
             </div>
             <div className="name-container">
               <div className="number">
-                <select name="" id="" className="tele">
+                {/* <select name="" id="" className="tele">
                   <option value="">+91</option>
-                </select>
+                </select> */}
                 <input
                   type="email"
                   onChange={(e) => SetEmail(e.target.value)}
@@ -945,6 +1010,19 @@ function Position({ isDarkMode, toggleDarkMode, handleButtonHover }) {
                 onChange={(e) => Setmessage(e.target.value)}
                 required
               />
+            </div>
+            <div className="flex justify-start w-[43%]">
+              <select
+                name=""
+                id=""
+                // value={openposition}
+                onChange={(e) => SetOpenPosition(e.target.value)}
+                className="first-name"
+              >
+                <option default>confirm position</option>
+                <option value="Shopify">Developer Shopify</option>
+                <option value="Ecommerce">Developer CMS/E-commerce</option>
+              </select>
             </div>
 
             <button
